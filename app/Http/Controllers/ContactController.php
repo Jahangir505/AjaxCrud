@@ -22,4 +22,14 @@ class ContactController extends Controller
         return ['success'=>true,'message'=>'Data Insert Successfully'];
         
     }
+    
+    
+    public function update(Request $request, $id){
+        $contact = Contact::find($id);
+        $contact->name      =   $request->input('name');
+        $contact->email     =   $request->input('email');
+        $contact->phone     =   $request->input('phone');
+        $contact->save();
+        return ['success'=>true,'message'=>'Data Updated Successfully'];
+    }
 }

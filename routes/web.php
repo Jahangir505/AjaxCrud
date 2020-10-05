@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AjaxCrudController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\MailSendController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,3 +26,6 @@ Route::post('/insert',[AjaxCrudController::class, 'store'])->name('insert');
 
 Route::get('contact',[ContactController::class, 'index'])->name('contact');
 Route::post('contacts',[ContactController::class, 'store'])->name('contacts');
+Route::post('update/{id}',[ContactController::class,'update'])->name('update');
+Route::get('mailsend',[MailSendController::class, 'index']);
+Route::post('mail-sending',[MailSendController::class, 'sendMail'])->name('mail-sending');
